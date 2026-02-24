@@ -45,10 +45,11 @@ body {
    MAIN CONTAINER (single layer)
 ================================ */
 .container {
+    width: 100%;
     max-width: 920px;
     margin: 0 auto;
     background: var(--card-background);
-    padding: 48px;
+    padding: 24px;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
@@ -103,7 +104,9 @@ a:hover {
    PROFILE
 ================================ */
 .profile img {
-    width: 260px;
+    width: 100%;
+    max-width: 260px;
+    height: auto;
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     display: block;
@@ -221,6 +224,11 @@ li {
         margin: 12mm;
     }
 }
+@media (max-width: 480px) {
+    .skills {
+        gap: 6px;
+    }
+}
 
 /* ===============================
    PIN OVERLAY
@@ -276,5 +284,6 @@ li {
     display: none;
     margin-top: 10px;
 }
+
 
 
