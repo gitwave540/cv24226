@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Palfrader - CV</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- PIN PROTECTION -->
+    <div id="pin-overlay">
+        <div class="pin-box">
+            <h2>Enter Access PIN</h2>
+            <input type="password" id="pin-input" inputmode="numeric" maxlength="6" placeholder="••••••" autofocus>
+            <button id="unlock-btn">Unlock</button>
+            <p id="pin-error" style="display:none;color:red;">Invalid PIN</p>
+        </div>
+    </div>
+    
+
+    <div class="container" id="content">
+        <!-- CONTACT -->
+        <header>
+            <p style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                
+                <!-- LEFT SIDE -->
+                <span class="header-links">
+                    <a href="mailto:davidpalfrader93@gmail.com">📧 davidpalfrader93@gmail.com</a>
+                    <a href="tel:+393713420070">📞 +39 3713420070</a>
+                    <a href="https://www.linkedin.com/in/inofdapa" target="_blank">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <!-- <a href="CoverLetter.html" title="Cover Letter">📄 Cover Letter</a>-->
+                </span>
+
+                <!-- RIGHT SIDE -->
+                <span class="print-icon" onclick="window.print()" title="Print / Save as PDF">
+                    🖨️
+                </span>
+
+            </p>
+        </header>
+
+
+        <!-- PROFILE -->
+        <section class="profile-section">
+            <div class="profile">
+                <img src="9.jpg" alt="David Palfrader" class="profile-photo">
+                <h1>DAVID PALFRADER</h1>
+                <p>
+                    Recent finance graduate, fluent in four languages, with hands-on experience in treasury operations, risk modeling, and portfolio analytics. Currently working in the Treasury department at Raiffeisen Landesbank Südtirol AG, with a growing interest in quantitative finance and programming. Proactive and data-driven, with a strong academic background in asset management and risk, complemented by practical experience using R and Python.
+                </p>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section>
+            <h3>SKILLS AND BUSINESS CAPABILITIES</h3>
+            <div class="skills">
+                <span>Analytical Thinking</span>
+                <span>Detail-Oriented</span>
+                <span>Self-Driven Learner</span>
+                <span>Solution-Oriented Thinking</span>
+                <span>Structured Approach</span>
+                <span>Adaptable & Curious</span>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
+        <section>
+            <h3>EXPERIENCE</h3>
+
+            <div class="job">
+                <h4><a href="https://www.raiffeisen.it/de/landesbank.html" target="_blank">LANDESBANK SÜDTIROL, ITALY</a></h4>
+                <p><em>Apr 2024 – Current | Banking – Treasury Department</em></p>
+                <ul>
+                    <li>Supported daily treasury operations including FX trading, interest rate swaps, and liquidity management.</li>
+                    <li>Automated daily reporting workflows using Excel, VBA, and MS Access.</li>
+                    <li>Extracted and analyzed market data via Bloomberg Terminal for trading strategy support.</li>
+                </ul>
+            </div>
+
+            <div class="job"> 
+                <h4><a href="https://www.alperiagroup.eu/en" target="_blank">ALPERIA TRADING, ITALY</a></h4> 
+                <p><em>Jul 2022 – Sep 2022 | Internship – Asset Management</em></p> 
+                <ul> 
+                    <li>Assisted the electricity trading desk in daily operations and data analytics.</li> 
+                    <li>Developed R scripts and Excel macros to automate hydroelectric inflow calculations.</li> 
+                    <li>Participated in hydropower plants site visits and onboarding activities for asset monitoring.</li> 
+                </ul> 
+            </div>
+            
+            <div class="job">
+                <h4><a href="https://www.topskicenter.com/" target="_blank">Kiosk Toni, Italy</a></h4>
+                <p><em>Jul 2017 – Sep 2020 | Sales Manager</em></p>
+            </div>
+
+            <div class="job">
+                <h4><a href="https://www.topskicenter.com/" target="_blank">Top Ski Center Kronplatz, Italy</a></h4>
+                <p><em>Nov 2016 – Apr 2017 | Sales & Customer Service</em></p>
+            </div>
+
+            <div class="job">
+                <h4><a href="https://suedtirol.live/en/store/elektro-mutschlechner-san-vigilio-di-marebbe-p56408" target="_blank">Elektro Mutchlechner, Italy</a></h4>
+                <p><em>Jul 2010 – Sep 2013 | Programming & Electrical Engineering</em></p>
+            </div>
+
+        </section>
+
+        <!-- EDUCATION -->
+        <section>
+            <h3>EDUCATION</h3>
+
+            <div class="education">
+                <h4><a href="https://www.uibk.ac.at/en/programmes/ma-banking-and-finance/" target="_blank">MASTER IN BANKING AND FINANCE</a></h4>
+                <p><em>University of Innsbruck, Austria | Oct 2022 – Nov 2024</em></p>
+                <ul>
+                    <li>Specialization in Asset & Portfolio Management, Corporate Finance, Quantitative Finance.</li>
+                    <li>Master's Thesis on <a href="https://ulb-dok.uibk.ac.at/urn/urn:nbn:at:at-ubi:1-163771" target="_blank">Regression Methods for Portfolio Optimization</a>.</li>
+                </ul>
+            </div>
+
+            <div class="education">
+                <h4><a href="https://www.uibk.ac.at/en/programmes/ba-management-and-economics/" target="_blank">BACHELOR IN ECONOMICS AND MANAGEMENT</a></h4>
+                <p><em>University of Innsbruck, Austria | Sep 2018 – Jun 2022</em></p>
+                <ul>
+                    <li>Specialization in Marketing and Asset Management with focus on Financial Markets.</li>
+                    <li>Additional coursework in <a href="https://www.uibk.ac.at/en/studien/ba-mathematik/" target="_blank">Mathematics</a> and <a href="https://www.uibk.ac.at/en/studien/es-informatik/" target="_blank">Informatics</a> as part of a minor study program.</li>
+                </ul>
+            </div>
+
+            <div class="education">
+                <h4><a href="https://www.bruneck.berufsschule.it/de/home" target="_blank">HIGH SCHOOL DIPLOMA – ELECTRICAL ENGINEERING & AUTOMATION</a></h4>
+                <p><em>BBF–TFO Bruneck, Italy | Sep 2013 – Jul 2015</em></p>
+            </div>
+
+        </section>
+
+        <!-- ADDITIONAL INFO -->
+        <section>
+            <h3>ADDITIONAL INFORMATION & TECHNICAL SKILLS</h3>
+            <p><span class="label">Languages:</span> Ladino (native), English (C1), German (C1/C2), Italian (C1)</p>
+            <p><span class="label">Programming:</span> R (advanced), Python, Java, SQL, VBA</p>
+            <p><span class="label">Tools:</span> Bloomberg Terminal, MS Excel (advanced), MS Access</p>
+            <p><span class="label">Certifications:</span> <a href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank">Bloomberg Market Concepts (BMC)</a></p>
+        </section>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+
+

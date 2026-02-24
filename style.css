@@ -1,0 +1,278 @@
+/* === style.css — clean, modern, professional CV === */
+
+/* ===============================
+   DESIGN TOKENS
+================================ */
+:root {
+    --primary-color: #0f172a;
+    --secondary-color: #334155;
+    --accent-color: #848996;
+    --muted-color: #21272e;
+
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+
+    --text-color: #0f172a;
+    --text-muted: #475569;
+
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Inter, Helvetica, Arial, sans-serif;
+
+    --border-radius: 8px;
+    --border-color: #e2e8f0;
+    --shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+}
+
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 32px 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ===============================
+   MAIN CONTAINER (single layer)
+================================ */
+.container {
+    max-width: 920px;
+    margin: 0 auto;
+    background: var(--card-background);
+    padding: 48px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+/* ===============================
+   HEADER
+================================ */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.header-links {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+/* ===============================
+   LINKS & ICONS
+================================ */
+a {
+    color: var(--muted-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s ease, opacity 0.15s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Print icon */
+.print-icon {
+    color: var(--muted-color);
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: opacity 0.15s ease;
+}
+
+.print-icon:hover {
+    opacity: 0.7;
+}
+
+/* ===============================
+   PROFILE
+================================ */
+.profile img {
+    width: 260px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    display: block;
+    margin: 32px auto;
+}
+
+.profile h1 {
+    text-align: center;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+}
+
+.profile p {
+    text-align: center;
+    color: var(--text-muted);
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+section {
+    margin-bottom: 40px;
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: 12px;
+}
+
+ul {
+    list-style: disc;
+    margin-left: 22px;
+}
+
+li {
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+/* ===============================
+   SKILLS
+================================ */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.skills span {
+    background: #f1f5f9;
+    color: var(--secondary-color);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+    .container {
+        padding: 28px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+
+    .profile img {
+        width: 200px;
+    }
+}
+
+/* ===============================
+   PRINT STYLES
+================================ */
+@media print {
+    header .print-icon,
+    .profile img {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+        font-size: 10pt;
+        line-height: 1.1;
+        padding: 0;
+    }
+
+    .container {
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    a {
+        color: black;
+        text-decoration: none;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 12mm;
+    }
+}
+
+/* ===============================
+   PIN OVERLAY
+================================ */
+#pin-overlay {
+    position: fixed;
+    inset: 0;
+    background: #f7f9fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.pin-box {
+    background: white;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    width: 280px;
+    text-align: center;
+}
+
+.pin-box input {
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 10px;
+    margin: 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    letter-spacing: 6px;
+}
+
+.pin-box button {
+    width: 100%;
+    padding: 10px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.pin-box button:hover {
+    background: #333;
+}
+
+#pin-error {
+    color: #dc2626;
+    font-size: 0.9rem;
+    display: none;
+    margin-top: 10px;
+}
