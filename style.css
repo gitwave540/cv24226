@@ -175,9 +175,9 @@ li {
 /* ===============================
    RESPONSIVE
 ================================ */
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     .container {
-        padding: 28px;
+        padding: 16px;
     }
 
     header {
@@ -227,6 +227,17 @@ li {
 @media (max-width: 480px) {
     .skills {
         gap: 6px;
+    }
+}
+@media (max-width: 480px) {
+    .header-links {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+}
+@media (max-width: 480px) {
+    .profile img {
+        margin: 16px auto;
     }
 }
 
@@ -284,6 +295,7 @@ li {
     display: none;
     margin-top: 10px;
 }
+
 
 
 
