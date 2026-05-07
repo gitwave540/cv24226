@@ -7,19 +7,28 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  :root {
-    --bg: #0e0e0e;
-    --surface: #161616;
-    --border: #2a2a2a;
-    --accent: #c8a96e;
-    --text: #e8e2d9;
-    --muted: #6b6560;
-    --subtle: #9a9189;
-    --error: #c0504d;
-  }
+:root {
+  --bg: #111315;
+  --surface: #1a1d21;
+  --surface-2: #20242a;
+
+  --border: #2f353d;
+
+  --accent: #c9a46b;
+  --accent-soft: #e2c79a;
+
+  --text: #f3f1ec;
+  --muted: #8d949c;
+  --subtle: #b6bcc3;
+
+  --error: #d46a6a;
+
+  --shadow: 0 10px 40px rgba(0,0,0,0.35);
+}
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
 
+  /* ── PIN SCREEN ── */
   #pin-screen {
     display: flex; flex-direction: column; align-items: center;
     justify-content: center; min-height: 100vh; gap: 2rem; padding: 2rem;
@@ -63,6 +72,7 @@
   }
   .unlock-btn:hover { background: var(--accent); color: var(--bg); }
 
+  /* ── CV SCREEN ── */
   #cv-screen {
     display: none; width: 100%; max-width: 900px;
     margin: 0 auto; padding: 4rem 2rem 6rem;
@@ -110,7 +120,6 @@
     margin-bottom: 1.6rem; display: flex; align-items: center; gap: 1rem;
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
   .cv-summary { font-size: 0.78rem; line-height: 1.95; color: var(--subtle); max-width: 700px; }
 
   .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
@@ -165,13 +174,119 @@
     .cv-header { grid-template-columns: auto 1fr; }
     .cv-contacts { grid-column: 1 / -1; align-items: flex-start; }
   }
+
+  /* ══ PRINT STYLES ══ */
   @media print {
-    body { background: #fff; color: #111; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    body {
+      background: #fff !important;
+      color: #1a1a1a !important;
+      font-family: 'DM Mono', monospace;
+      font-size: 9pt;
+    }
+
     #pin-screen { display: none !important; }
-    #cv-screen { display: block !important; }
-    :root { --bg:#fff; --surface:#fff; --border:#ddd; --accent:#8a6a30; --text:#111; --muted:#555; --subtle:#333; }
-    .cv-photo { filter: none; }
+
+    #cv-screen {
+      display: block !important;
+      max-width: 100%;
+      padding: 0;
+      margin: 0;
+      animation: none;
+    }
+
+    /* One page: tighter margins via @page */
+    @page {
+      size: A4;
+      margin: 12mm 14mm 10mm 14mm;
+    }
+
+    /* Header */
+    .cv-header {
+      grid-template-columns: auto 1fr auto;
+      gap: 1rem;
+      padding-bottom: 8pt;
+      margin-bottom: 10pt;
+      border-bottom: 1px solid #bbb;
+    }
+    .cv-photo {
+      width: 58px; height: 58px;
+      filter: none;
+      border: 1px solid #ccc;
+    }
+    .cv-name {
+      font-size: 22pt;
+      letter-spacing: 0.04em;
+      color: #1a1a1a;
+    }
+    .cv-name span { color: #8a6a30; }
+    .cv-contacts { gap: 2pt; }
+    .cv-contacts a {
+      font-size: 7.5pt;
+      color: #444;
+      gap: 3pt;
+    }
+    .cv-contacts a i { font-size: 7pt; }
     .print-btn { display: none; }
+
+    /* Sections */
+    .cv-section { margin-bottom: 9pt; }
+    .section-title {
+      font-size: 6pt;
+      letter-spacing: 0.28em;
+      color: #8a6a30;
+      margin-bottom: 6pt;
+    }
+    .section-title::after { background: #ccc; }
+
+    /* Profile */
+    .cv-summary {
+      font-size: 7.8pt;
+      line-height: 1.55;
+      color: #333;
+      max-width: 100%;
+    }
+
+    /* Skills */
+    .skills-grid { gap: 3pt; }
+    .skill-tag {
+      font-size: 6.5pt;
+      padding: 2pt 6pt;
+      border-color: #bbb;
+      color: #555;
+    }
+
+    /* Experience */
+    .exp-item {
+      margin-bottom: 7pt;
+      padding-bottom: 7pt;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .exp-company { font-size: 10pt; color: #1a1a1a; }
+    .exp-date { font-size: 7pt; color: #666; }
+    .exp-role { font-size: 6.5pt; color: #8a6a30; margin-bottom: 3pt; }
+    .exp-bullets li { font-size: 7.5pt; line-height: 1.5; color: #333; padding-left: 10pt; }
+    .exp-bullets li::before { color: #aaa; }
+
+    /* Education */
+    .edu-item { margin-bottom: 7pt; }
+    .edu-degree { font-size: 9.5pt; color: #1a1a1a; }
+    .edu-school { font-size: 6.5pt; color: #8a6a30; }
+    .edu-date { font-size: 7pt; color: #666; margin-bottom: 2pt; }
+    .edu-bullets li { font-size: 7.5pt; line-height: 1.5; color: #333; padding-left: 10pt; }
+    .edu-bullets li::before { color: #aaa; }
+    .edu-bullets a { color: #555; }
+
+    /* Additional info */
+    .info-grid { grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+    .info-label { font-size: 6pt; color: #666; margin-bottom: 2pt; }
+    .info-value { font-size: 7.5pt; line-height: 1.55; color: #1a1a1a; }
+    .info-value a { color: #555; }
+
+    /* Prevent page breaks inside blocks */
+    .exp-item, .edu-item, .cv-section { page-break-inside: avoid; }
   }
 </style>
 </head>
@@ -321,8 +436,6 @@
 </div>
 
 <script>
-  // PIN is verified using SHA-256 — the actual PIN cannot be read from this code.
-  // SHA-256 is a one-way function: knowing the hash does not reveal the original PIN.
   const PIN_HASH = '315b7924897972befced4d452b492c0a9256f4ff3fec9b0fc83e6a1e17bdc50e';
 
   const digits = document.querySelectorAll('.pin-digit');
@@ -346,12 +459,9 @@
   async function unlock() {
     const pin = Array.from(digits).map(d => d.value).join('');
     if (pin.length < 6) { showHint('please enter all 6 digits', true); return; }
-
-    // Hash the entered PIN and compare — never store or compare the raw PIN
     const encoded = new TextEncoder().encode(pin);
     const hashBuf = await crypto.subtle.digest('SHA-256', encoded);
     const hashHex = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
-
     if (hashHex === PIN_HASH) {
       document.getElementById('pin-screen').style.display = 'none';
       document.getElementById('cv-screen').style.display = 'block';
