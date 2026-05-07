@@ -18,30 +18,16 @@
     --error: #c0504d;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    min-height: 100vh;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
 
-  /* ── PIN SCREEN ── */
   #pin-screen {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    gap: 2rem;
-    padding: 2rem;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; min-height: 100vh; gap: 2rem; padding: 2rem;
   }
   .lock-icon {
-    width: 60px; height: 60px;
-    border: 1.5px solid var(--accent);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--accent);
-    font-size: 1.3rem;
+    width: 60px; height: 60px; border: 1.5px solid var(--accent);
+    border-radius: 50%; display: flex; align-items: center;
+    justify-content: center; color: var(--accent); font-size: 1.3rem;
     animation: pulse 3s ease-in-out infinite;
   }
   @keyframes pulse {
@@ -49,70 +35,37 @@
     50%      { box-shadow: 0 0 0 14px rgba(200,169,110,0); }
   }
   .pin-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 300;
-    letter-spacing: 0.18em;
-    color: var(--muted);
-    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
+    font-weight: 300; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
   }
-  .pin-input-wrap {
-    display: flex;
-    gap: 0.55rem;
-  }
+  .pin-input-wrap { display: flex; gap: 0.55rem; }
   .pin-input-wrap input {
-    width: 3rem; height: 3.6rem;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    color: var(--text);
-    font-family: 'DM Mono', monospace;
-    font-size: 1.5rem;
-    text-align: center;
-    outline: none;
-    transition: border-color 0.2s;
-    -webkit-text-security: disc;
-    caret-color: var(--accent);
+    width: 3rem; height: 3.6rem; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 4px; color: var(--text);
+    font-family: 'DM Mono', monospace; font-size: 1.5rem; text-align: center;
+    outline: none; transition: border-color 0.2s;
+    -webkit-text-security: disc; caret-color: var(--accent);
   }
   .pin-input-wrap input:focus { border-color: var(--accent); }
-  .pin-input-wrap.error input {
-    border-color: var(--error);
-    animation: shake 0.3s ease;
-  }
+  .pin-input-wrap.error input { border-color: var(--error); animation: shake 0.3s ease; }
   @keyframes shake {
     0%,100% { transform: translateX(0); }
-    25%      { transform: translateX(-6px); }
-    75%      { transform: translateX(6px); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
   }
-  .pin-hint {
-    font-size: 0.68rem;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    height: 1rem;
-  }
+  .pin-hint { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; height: 1rem; }
   .pin-hint.err { color: var(--error); }
   .unlock-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    padding: 0.75rem 2.2rem;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    border-radius: 2px;
+    background: transparent; border: 1px solid var(--accent); color: var(--accent);
+    font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; padding: 0.75rem 2.2rem; cursor: pointer;
+    transition: background 0.2s, color 0.2s; border-radius: 2px;
   }
   .unlock-btn:hover { background: var(--accent); color: var(--bg); }
 
-  /* ── CV SCREEN ── */
   #cv-screen {
-    display: none;
-    width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 4rem 2rem 6rem;
+    display: none; width: 100%; max-width: 900px;
+    margin: 0 auto; padding: 4rem 2rem 6rem;
     animation: fadeIn 0.7s ease;
   }
   @keyframes fadeIn {
@@ -120,231 +73,103 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* ── HEADER ── */
   .cv-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: 2.5rem;
+    display: grid; grid-template-columns: auto 1fr auto;
+    align-items: center; gap: 2.5rem;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 2.5rem;
-    margin-bottom: 3rem;
+    padding-bottom: 2.5rem; margin-bottom: 3rem;
   }
   .cv-photo {
-    width: 90px; height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1.5px solid var(--border);
-    filter: grayscale(20%);
+    width: 90px; height: 90px; border-radius: 50%;
+    object-fit: cover; border: 1.5px solid var(--border); filter: grayscale(20%);
   }
   .cv-name {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 300;
-    letter-spacing: 0.06em;
-    line-height: 1;
+    font-weight: 300; letter-spacing: 0.06em; line-height: 1;
   }
   .cv-name span { color: var(--accent); }
-  .cv-contacts {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.45rem;
-  }
+  .cv-contacts { display: flex; flex-direction: column; align-items: flex-end; gap: 0.45rem; }
   .cv-contacts a {
-    font-size: 0.68rem;
-    color: var(--muted);
-    text-decoration: none;
-    letter-spacing: 0.06em;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    transition: color 0.2s;
+    font-size: 0.68rem; color: var(--muted); text-decoration: none;
+    letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
   }
   .cv-contacts a:hover { color: var(--accent); }
   .cv-contacts a i { font-size: 0.7rem; }
   .print-btn {
-    background: none;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 0;
-    transition: color 0.2s;
-    margin-top: 0.5rem;
-    align-self: flex-end;
+    background: none; border: none; color: var(--muted); cursor: pointer;
+    font-size: 1rem; padding: 0; transition: color 0.2s;
+    margin-top: 0.5rem; align-self: flex-end;
   }
   .print-btn:hover { color: var(--accent); }
 
-  /* ── SECTIONS ── */
   .cv-section { margin-bottom: 3.2rem; }
   .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.32em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.6rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+    font-family: 'Cormorant Garamond', serif; font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1.6rem; display: flex; align-items: center; gap: 1rem;
   }
-  .section-title::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
-  }
+  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-  /* ── PROFILE ── */
-  .cv-summary {
-    font-size: 0.78rem;
-    line-height: 1.95;
-    color: var(--subtle);
-    max-width: 700px;
-  }
+  .cv-summary { font-size: 0.78rem; line-height: 1.95; color: var(--subtle); max-width: 700px; }
 
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
   .skill-tag {
-    font-size: 0.63rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid var(--border);
-    padding: 0.3rem 0.8rem;
-    border-radius: 2px;
-    color: var(--muted);
-    transition: border-color 0.2s, color 0.2s;
+    font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase;
+    border: 1px solid var(--border); padding: 0.3rem 0.8rem; border-radius: 2px;
+    color: var(--muted); transition: border-color 0.2s, color 0.2s;
   }
   .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-  /* ── EXPERIENCE ── */
-  .exp-item {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
-    border-bottom: 1px solid var(--border);
-  }
+  .exp-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
   .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
   .exp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.3rem;
+    display: flex; justify-content: space-between;
+    align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.3rem;
   }
   .exp-company {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--text);
-    letter-spacing: 0.03em;
-    text-decoration: none;
-    transition: color 0.2s;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+    font-weight: 600; color: var(--text); letter-spacing: 0.03em;
+    text-decoration: none; transition: color 0.2s;
   }
   .exp-company:hover { color: var(--accent); }
-  .exp-date {
-    font-size: 0.63rem;
-    color: var(--muted);
-    letter-spacing: 0.08em;
-    white-space: nowrap;
-  }
-  .exp-role {
-    font-size: 0.66rem;
-    color: var(--accent);
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    margin-bottom: 0.7rem;
-  }
+  .exp-date { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
+  .exp-role { font-size: 0.66rem; color: var(--accent); letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.7rem; }
   .exp-bullets { list-style: none; padding: 0; }
-  .exp-bullets li {
-    font-size: 0.74rem;
-    line-height: 1.85;
-    color: var(--subtle);
-    padding-left: 1.1rem;
-    position: relative;
-  }
-  .exp-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--border);
-  }
+  .exp-bullets li { font-size: 0.74rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
+  .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
 
-  /* ── EDUCATION ── */
   .edu-item { margin-bottom: 2rem; }
   .edu-item:last-child { margin-bottom: 0; }
   .edu-degree {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--text);
-    text-decoration: none;
-    transition: color 0.2s;
-    display: inline-block;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
+    font-weight: 600; color: var(--text); text-decoration: none;
+    transition: color 0.2s; display: inline-block;
   }
   .edu-degree:hover { color: var(--accent); }
-  .edu-school {
-    font-size: 0.65rem;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    margin: 0.25rem 0 0.15rem;
-  }
+  .edu-school { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 0.25rem 0 0.15rem; }
   .edu-date { font-size: 0.63rem; color: var(--muted); margin-bottom: 0.5rem; }
   .edu-bullets { list-style: none; padding: 0; }
-  .edu-bullets li {
-    font-size: 0.74rem;
-    line-height: 1.85;
-    color: var(--subtle);
-    padding-left: 1.1rem;
-    position: relative;
-  }
+  .edu-bullets li { font-size: 0.74rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
   .edu-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .edu-bullets a { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
   .edu-bullets a:hover { color: var(--accent); }
 
-  /* ── ADDITIONAL INFO ── */
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.8rem;
-  }
-  .info-label {
-    font-size: 0.58rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 0.5rem;
-  }
-  .info-value {
-    font-size: 0.74rem;
-    color: var(--text);
-    line-height: 1.85;
-  }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.8rem; }
+  .info-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .info-value { font-size: 0.74rem; color: var(--text); line-height: 1.85; }
   .info-value a { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
   .info-value a:hover { color: var(--accent); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 620px) {
     .cv-header { grid-template-columns: auto 1fr; }
     .cv-contacts { grid-column: 1 / -1; align-items: flex-start; }
   }
-
-  /* ── PRINT ── */
   @media print {
     body { background: #fff; color: #111; }
     #pin-screen { display: none !important; }
     #cv-screen { display: block !important; }
-    :root {
-      --bg: #fff; --surface: #fff; --border: #ddd;
-      --accent: #8a6a30; --text: #111; --muted: #555; --subtle: #333;
-    }
+    :root { --bg:#fff; --surface:#fff; --border:#ddd; --accent:#8a6a30; --text:#111; --muted:#555; --subtle:#333; }
     .cv-photo { filter: none; }
     .print-btn { display: none; }
   }
@@ -352,7 +177,6 @@
 </head>
 <body>
 
-<!-- ══ PIN SCREEN ══ -->
 <div id="pin-screen">
   <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
   <div class="pin-title">Access Required</div>
@@ -368,10 +192,7 @@
   <button class="unlock-btn" onclick="unlock()">Unlock</button>
 </div>
 
-<!-- ══ CV SCREEN ══ -->
 <div id="cv-screen">
-
-  <!-- HEADER -->
   <div class="cv-header">
     <img src="9.jpg" alt="David Palfrader" class="cv-photo">
     <div class="cv-name">DAVID<br><span>PALFRADER</span></div>
@@ -383,15 +204,13 @@
     </div>
   </div>
 
-  <!-- PROFILE -->
   <div class="cv-section">
     <div class="section-title">Profile</div>
     <p class="cv-summary">Recent finance graduate, fluent in four languages, with hands-on experience in treasury operations, risk modeling, and portfolio analytics. Currently working in the Treasury department at Raiffeisen Landesbank Südtirol AG, with a growing interest in quantitative finance and programming. Proactive and data-driven, with a strong academic background in asset management and risk, complemented by practical experience using R and Python.</p>
   </div>
 
-  <!-- SKILLS -->
   <div class="cv-section">
-    <div class="section-title">Skills & Capabilities</div>
+    <div class="section-title">Skills &amp; Capabilities</div>
     <div class="skills-grid">
       <span class="skill-tag">Analytical Thinking</span>
       <span class="skill-tag">Detail-Oriented</span>
@@ -402,10 +221,8 @@
     </div>
   </div>
 
-  <!-- EXPERIENCE -->
   <div class="cv-section">
     <div class="section-title">Experience</div>
-
     <div class="exp-item">
       <div class="exp-header">
         <a class="exp-company" href="https://www.raiffeisen.it/de/landesbank.html" target="_blank">Raiffeisen Landesbank Südtirol</a>
@@ -418,7 +235,6 @@
         <li>Extracted and analyzed market data via Bloomberg Terminal for trading strategy support.</li>
       </ul>
     </div>
-
     <div class="exp-item">
       <div class="exp-header">
         <a class="exp-company" href="https://www.alperiagroup.eu/en" target="_blank">Alperia Trading</a>
@@ -431,7 +247,6 @@
         <li>Participated in hydropower plants site visits and onboarding activities for asset monitoring.</li>
       </ul>
     </div>
-
     <div class="exp-item">
       <div class="exp-header">
         <a class="exp-company" href="https://www.topskicenter.com/" target="_blank">Kiosk Toni</a>
@@ -439,28 +254,24 @@
       </div>
       <div class="exp-role">Sales Manager</div>
     </div>
-
     <div class="exp-item">
       <div class="exp-header">
         <a class="exp-company" href="https://www.topskicenter.com/" target="_blank">Top Ski Center Kronplatz</a>
         <span class="exp-date">Nov 2016 – Apr 2017</span>
       </div>
-      <div class="exp-role">Sales & Customer Service</div>
+      <div class="exp-role">Sales &amp; Customer Service</div>
     </div>
-
     <div class="exp-item">
       <div class="exp-header">
         <a class="exp-company" href="https://suedtirol.live/en/store/elektro-mutschlechner-san-vigilio-di-marebbe-p56408" target="_blank">Elektro Mutschlechner</a>
         <span class="exp-date">Jul 2010 – Sep 2013</span>
       </div>
-      <div class="exp-role">Programming & Electrical Engineering</div>
+      <div class="exp-role">Programming &amp; Electrical Engineering</div>
     </div>
   </div>
 
-  <!-- EDUCATION -->
   <div class="cv-section">
     <div class="section-title">Education</div>
-
     <div class="edu-item">
       <a class="edu-degree" href="https://www.uibk.ac.at/en/programmes/ma-banking-and-finance/" target="_blank">Master in Banking and Finance</a>
       <div class="edu-school">University of Innsbruck, Austria</div>
@@ -470,7 +281,6 @@
         <li>Thesis: <a href="https://ulb-dok.uibk.ac.at/urn/urn:nbn:at:at-ubi:1-163771" target="_blank">Regression Methods for Portfolio Optimization</a></li>
       </ul>
     </div>
-
     <div class="edu-item">
       <a class="edu-degree" href="https://www.uibk.ac.at/en/programmes/ba-management-and-economics/" target="_blank">Bachelor in Economics and Management</a>
       <div class="edu-school">University of Innsbruck, Austria</div>
@@ -480,7 +290,6 @@
         <li>Additional coursework in <a href="https://www.uibk.ac.at/en/studien/ba-mathematik/" target="_blank">Mathematics</a> and <a href="https://www.uibk.ac.at/en/studien/es-informatik/" target="_blank">Informatics</a> as part of a minor study program.</li>
       </ul>
     </div>
-
     <div class="edu-item">
       <a class="edu-degree" href="https://www.bruneck.berufsschule.it/de/home" target="_blank">High School Diploma – Electrical Engineering &amp; Automation</a>
       <div class="edu-school">BBF–TFO Bruneck, Italy</div>
@@ -488,49 +297,35 @@
     </div>
   </div>
 
-  <!-- ADDITIONAL INFO -->
   <div class="cv-section">
     <div class="section-title">Additional Information &amp; Technical Skills</div>
     <div class="info-grid">
       <div>
         <div class="info-label">Languages</div>
-        <div class="info-value">
-          Ladino — Native<br>
-          English — C1<br>
-          German — C1 / C2<br>
-          Italian — C1
-        </div>
+        <div class="info-value">Ladino — Native<br>English — C1<br>German — C1 / C2<br>Italian — C1</div>
       </div>
       <div>
         <div class="info-label">Programming</div>
-        <div class="info-value">
-          R — Advanced<br>
-          Python · Java · SQL<br>
-          VBA
-        </div>
+        <div class="info-value">R — Advanced<br>Python · Java · SQL<br>VBA</div>
       </div>
       <div>
         <div class="info-label">Tools</div>
-        <div class="info-value">
-          Bloomberg Terminal<br>
-          MS Excel — Advanced<br>
-          MS Access
-        </div>
+        <div class="info-value">Bloomberg Terminal<br>MS Excel — Advanced<br>MS Access</div>
       </div>
       <div>
         <div class="info-label">Certifications</div>
-        <div class="info-value">
-          <a href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank">Bloomberg Market Concepts (BMC)</a>
-        </div>
+        <div class="info-value"><a href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank">Bloomberg Market Concepts (BMC)</a></div>
       </div>
     </div>
   </div>
-
-</div><!-- /cv-screen -->
+</div>
 
 <script>
-  const digits = document.querySelectorAll('.pin-digit');
+  // PIN is verified using SHA-256 — the actual PIN cannot be read from this code.
+  // SHA-256 is a one-way function: knowing the hash does not reveal the original PIN.
+  const PIN_HASH = '315b7924897972befced4d452b492c0a9256f4ff3fec9b0fc83e6a1e17bdc50e';
 
+  const digits = document.querySelectorAll('.pin-digit');
   digits.forEach((input, i) => {
     input.addEventListener('input', () => {
       if (input.value.length === 1) {
@@ -546,13 +341,18 @@
       if (e.key === 'Enter') unlock();
     });
   });
-
   digits[0].focus();
 
-  function unlock() {
+  async function unlock() {
     const pin = Array.from(digits).map(d => d.value).join('');
     if (pin.length < 6) { showHint('please enter all 6 digits', true); return; }
-    if (pin === atob('ODczNTE5')) {
+
+    // Hash the entered PIN and compare — never store or compare the raw PIN
+    const encoded = new TextEncoder().encode(pin);
+    const hashBuf = await crypto.subtle.digest('SHA-256', encoded);
+    const hashHex = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
+
+    if (hashHex === PIN_HASH) {
       document.getElementById('pin-screen').style.display = 'none';
       document.getElementById('cv-screen').style.display = 'block';
       window.scrollTo(0, 0);
