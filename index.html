@@ -17,6 +17,8 @@
   --subtle: #bbbbbb;   /* Onyx - Für Hover-Effekte oder Tabellen-Header */
   --data: #a1a1aa;     /* Silver - Für IT-relevante Code-Blöcke oder Metadaten */
 }
+
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
 
@@ -168,118 +170,120 @@
   }
 
   /* ══ PRINT STYLES ══ */
-  @media print {
-    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
-    body {
-      background: #fff !important;
-      color: #1a1a1a !important;
-      font-family: 'DM Mono', monospace;
-      font-size: 9pt;
-    }
-
-    #pin-screen { display: none !important; }
-
-    #cv-screen {
-      display: block !important;
-      max-width: 100%;
-      padding: 0;
-      margin: 0;
-      animation: none;
-    }
-
-    /* One page: tighter margins via @page */
-    @page {
-      size: A4;
-      margin: 12mm 14mm 10mm 14mm;
-    }
-
-    /* Header */
-    .cv-header {
-      grid-template-columns: auto 1fr auto;
-      gap: 1rem;
-      padding-bottom: 8pt;
-      margin-bottom: 10pt;
-      border-bottom: 1px solid #bbb;
-    }
-    .cv-photo {
-      width: 58px; height: 58px;
-      filter: none;
-      border: 1px solid #ccc;
-    }
-    .cv-name {
-      font-size: 22pt;
-      letter-spacing: 0.04em;
-      color: #1a1a1a;
-    }
-    .cv-name span { color: #8a6a30; }
-    .cv-contacts { gap: 2pt; }
-    .cv-contacts a {
-      font-size: 7.5pt;
-      color: #444;
-      gap: 3pt;
-    }
-    .cv-contacts a i { font-size: 7pt; }
-    .print-btn { display: none; }
-
-    /* Sections */
-    .cv-section { margin-bottom: 9pt; }
-    .section-title {
-      font-size: 6pt;
-      letter-spacing: 0.28em;
-      color: #8a6a30;
-      margin-bottom: 6pt;
-    }
-    .section-title::after { background: #ccc; }
-
-    /* Profile */
-    .cv-summary {
-      font-size: 7.8pt;
-      line-height: 1.55;
-      color: #333;
-      max-width: 100%;
-    }
-
-    /* Skills */
-    .skills-grid { gap: 3pt; }
-    .skill-tag {
-      font-size: 6.5pt;
-      padding: 2pt 6pt;
-      border-color: #bbb;
-      color: #555;
-    }
-
-    /* Experience */
-    .exp-item {
-      margin-bottom: 7pt;
-      padding-bottom: 7pt;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-    .exp-company { font-size: 10pt; color: #1a1a1a; }
-    .exp-date { font-size: 7pt; color: #666; }
-    .exp-role { font-size: 6.5pt; color: #8a6a30; margin-bottom: 3pt; }
-    .exp-bullets li { font-size: 7.5pt; line-height: 1.5; color: #333; padding-left: 10pt; }
-    .exp-bullets li::before { color: #aaa; }
-
-    /* Education */
-    .edu-item { margin-bottom: 7pt; }
-    .edu-degree { font-size: 9.5pt; color: #1a1a1a; }
-    .edu-school { font-size: 6.5pt; color: #8a6a30; }
-    .edu-date { font-size: 7pt; color: #666; margin-bottom: 2pt; }
-    .edu-bullets li { font-size: 7.5pt; line-height: 1.5; color: #333; padding-left: 10pt; }
-    .edu-bullets li::before { color: #aaa; }
-    .edu-bullets a { color: #555; }
-
-    /* Additional info */
-    .info-grid { grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
-    .info-label { font-size: 6pt; color: #666; margin-bottom: 2pt; }
-    .info-value { font-size: 7.5pt; line-height: 1.55; color: #1a1a1a; }
-    .info-value a { color: #555; }
-
-    /* Prevent page breaks inside blocks */
-    .exp-item, .edu-item, .cv-section { page-break-inside: avoid; }
+  body {
+    background: #fff !important;
+    color: #0a0a0b !important; /* Obsidian Black */
+    font-family: 'DM Mono', monospace;
+    font-size: 9pt;
   }
+
+  #pin-screen { display: none !important; }
+
+  #cv-screen {
+    display: block !important;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    animation: none;
+  }
+
+  @page {
+    size: A4;
+    margin: 12mm 14mm 10mm 14mm;
+  }
+
+  /* Header */
+  .cv-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 1rem;
+    padding-bottom: 8pt;
+    margin-bottom: 10pt;
+    border-bottom: 1px solid #262629; /* Brushed Steel */
+  }
+  .cv-photo {
+    width: 58px; height: 58px;
+    filter: grayscale(100%);
+    border: 1px solid #262629;
+  }
+  .cv-name {
+    font-size: 22pt;
+    letter-spacing: 0.04em;
+    color: #0a0a0b;
+  }
+  .cv-name span { color: #85858b; } /* Slate Shadow statt Gold */
+  .cv-contacts { gap: 2pt; }
+  .cv-contacts a {
+    font-size: 7.5pt;
+    color: #262629;
+    gap: 3pt;
+  }
+  .cv-contacts a i { font-size: 7pt; color: #85858b; }
+  .print-btn { display: none; }
+
+  /* Sections */
+  .cv-section { margin-bottom: 9pt; }
+  .section-title {
+    font-size: 6pt;
+    letter-spacing: 0.28em;
+    color: #0a0a0b; /* Obsidian für Fokus */
+    margin-bottom: 6pt;
+    font-weight: bold;
+  }
+  .section-title::after { background: #262629; } /* Steel Line */
+
+  /* Profile */
+  .cv-summary {
+    font-size: 7.8pt;
+    line-height: 1.55;
+    color: #141416;
+    max-width: 100%;
+  }
+
+  /* Skills */
+  .skills-grid { gap: 3pt; }
+  .skill-tag {
+    font-size: 6.5pt;
+    padding: 2pt 6pt;
+    border-color: #262629;
+    color: #0a0a0b;
+    background: #f4f4f5 !important;
+  }
+
+  /* Experience */
+  .exp-item {
+    margin-bottom: 7pt;
+    padding-bottom: 7pt;
+    border-bottom: 1px solid #e4e4e9;
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .exp-company { font-size: 10pt; color: #0a0a0b; font-weight: bold; }
+  .exp-date { font-size: 7pt; color: #85858b; }
+  .exp-role { font-size: 6.5pt; color: #52525b; margin-bottom: 3pt; font-weight: bold; }
+  .exp-bullets li { font-size: 7.5pt; line-height: 1.5; color: #141416; padding-left: 10pt; }
+  .exp-bullets li::before { color: #a1a1aa; }
+
+  /* Education */
+  .edu-item { margin-bottom: 7pt; }
+  .edu-degree { font-size: 9.5pt; color: #0a0a0b; font-weight: bold; }
+  .edu-school { font-size: 6.5pt; color: #52525b; }
+  .edu-date { font-size: 7pt; color: #85858b; margin-bottom: 2pt; }
+  .edu-bullets li { font-size: 7.5pt; line-height: 1.5; color: #141416; padding-left: 10pt; }
+  .edu-bullets li::before { color: #a1a1aa; }
+  .edu-bullets a { color: #262629; }
+
+  /* Additional info */
+  .info-grid { grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
+  .info-label { font-size: 6pt; color: #85858b; margin-bottom: 2pt; }
+  .info-value { font-size: 7.5pt; line-height: 1.55; color: #0a0a0b; }
+  .info-value a { color: #262629; }
+
+  /* Prevent page breaks inside blocks */
+  .exp-item, .edu-item, .cv-section { page-break-inside: avoid; }
+}
+
 </style>
 </head>
 <body>
