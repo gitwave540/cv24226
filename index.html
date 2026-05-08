@@ -3,22 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>David Palfrader - CV</title>
+<title>CV — Access Required</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-:root {
-  --bg: #0a0a0b;       /* Obsidian Black - Absolut tief, strahlt Ruhe aus */
-  --surface: #141416;  /* Gunmetal - Subtile Abhebung für Container */
-  --border: #262629;   /* Brushed Steel - Sehr fein, wirkt wie technisches Equipment */
-  --accent: #ffffff;   /* Pure White - Der schärfste Kontrast für Fokus & Präzision */
-  --text: #e4e4e9;     /* Platinum Silk - Weiches Grau, extrem lesbar auf Schwarz */
-  --muted: #85858b;    /* Slate Shadow - Für Dezentralisierung des Unwichtigen */
-  --subtle: #bbbbbb;   /* Onyx - Für Hover-Effekte oder Tabellen-Header */
-  --data: #a1a1aa;     /* Silver - Für IT-relevante Code-Blöcke oder Metadaten */
-}
-
-
+  :root {
+    --bg:      #0b0e12;
+    --surface: #131720;
+    --border:  #1e2535;
+    --accent:  #5b7fa6;   /* steel blue */
+    --accent2: #7fa8c9;   /* lighter blue for hover/subtle */
+    --text:    #d8dde8;
+    --muted:   #5a6275;
+    --subtle:  #8a93a8;
+    --error:   #b85c5c;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'DM Mono', monospace; min-height: 100vh; }
 
@@ -28,18 +27,18 @@
     justify-content: center; min-height: 100vh; gap: 2rem; padding: 2rem;
   }
   .lock-icon {
-    width: 60px; height: 60px; border: 1.5px solid var(--accent);
+    width: 62px; height: 62px; border: 1.5px solid var(--accent);
     border-radius: 50%; display: flex; align-items: center;
-    justify-content: center; color: var(--accent); font-size: 1.3rem;
+    justify-content: center; color: var(--accent); font-size: 1.25rem;
     animation: pulse 3s ease-in-out infinite;
   }
   @keyframes pulse {
-    0%,100% { box-shadow: 0 0 0 0 rgba(200,169,110,0.3); }
-    50%      { box-shadow: 0 0 0 14px rgba(200,169,110,0); }
+    0%,100% { box-shadow: 0 0 0 0 rgba(91,127,166,0.3); }
+    50%      { box-shadow: 0 0 0 14px rgba(91,127,166,0); }
   }
   .pin-title {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.3rem;
-    font-weight: 300; letter-spacing: 0.18em; color: var(--muted); text-transform: uppercase;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+    font-weight: 300; letter-spacing: 0.2em; color: var(--muted); text-transform: uppercase;
   }
   .pin-input-wrap { display: flex; gap: 0.55rem; }
   .pin-input-wrap input {
@@ -52,9 +51,7 @@
   .pin-input-wrap input:focus { border-color: var(--accent); }
   .pin-input-wrap.error input { border-color: var(--error); animation: shake 0.3s ease; }
   @keyframes shake {
-    0%,100% { transform: translateX(0); }
-    25% { transform: translateX(-6px); }
-    75% { transform: translateX(6px); }
+    0%,100% { transform: translateX(0); } 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); }
   }
   .pin-hint { font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; height: 1rem; }
   .pin-hint.err { color: var(--error); }
@@ -67,15 +64,8 @@
   .unlock-btn:hover { background: var(--accent); color: var(--bg); }
 
   /* ── CV SCREEN ── */
-  #cv-screen {
-    display: none; width: 100%; max-width: 900px;
-    margin: 0 auto; padding: 4rem 2rem 6rem;
-    animation: fadeIn 0.7s ease;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+  #cv-screen { display: none; width: 100%; max-width: 900px; margin: 0 auto; padding: 4rem 2rem 6rem; animation: fadeIn 0.7s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
   .cv-header {
     display: grid; grid-template-columns: auto 1fr auto;
@@ -83,211 +73,115 @@
     border-bottom: 1px solid var(--border);
     padding-bottom: 2.5rem; margin-bottom: 3rem;
   }
-  .cv-photo {
-    width: 90px; height: 90px; border-radius: 50%;
-    object-fit: cover; border: 1.5px solid var(--border); filter: grayscale(20%);
-  }
-  .cv-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 300; letter-spacing: 0.06em; line-height: 1;
-  }
-  .cv-name span { color: var(--accent); }
+  .cv-photo { width: 88px; height: 88px; border-radius: 50%; object-fit: cover; border: 1.5px solid var(--border); filter: grayscale(15%); }
+  .cv-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 300; letter-spacing: 0.06em; line-height: 1; color: var(--text); }
+  .cv-name span { color: var(--accent2); }
   .cv-contacts { display: flex; flex-direction: column; align-items: flex-end; gap: 0.45rem; }
-  .cv-contacts a {
-    font-size: 0.68rem; color: var(--muted); text-decoration: none;
-    letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s;
-  }
-  .cv-contacts a:hover { color: var(--accent); }
-  .cv-contacts a i { font-size: 0.7rem; }
-  .print-btn {
-    background: none; border: none; color: var(--muted); cursor: pointer;
-    font-size: 1rem; padding: 0; transition: color 0.2s;
-    margin-top: 0.5rem; align-self: flex-end;
-  }
-  .print-btn:hover { color: var(--accent); }
+  .cv-contacts a { font-size: 0.67rem; color: var(--muted); text-decoration: none; letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+  .cv-contacts a:hover { color: var(--accent2); }
+  .cv-contacts a i { font-size: 0.68rem; }
+  .print-btn { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 0.95rem; padding: 0; transition: color 0.2s; margin-top: 0.5rem; align-self: flex-end; }
+  .print-btn:hover { color: var(--accent2); }
 
-  .cv-section { margin-bottom: 3.2rem; }
+  .cv-section { margin-bottom: 3rem; }
   .section-title {
-    font-family: 'Cormorant Garamond', serif; font-size: 0.62rem; font-weight: 600;
+    font-family: 'Cormorant Garamond', serif; font-size: 0.6rem; font-weight: 600;
     letter-spacing: 0.32em; text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1.6rem; display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;
   }
   .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .cv-summary { font-size: 0.78rem; line-height: 1.95; color: var(--subtle); max-width: 700px; }
+  .cv-summary { font-size: 0.77rem; line-height: 1.95; color: var(--subtle); max-width: 700px; }
 
-  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .skill-tag {
-    font-size: 0.63rem; letter-spacing: 0.1em; text-transform: uppercase;
-    border: 1px solid var(--border); padding: 0.3rem 0.8rem; border-radius: 2px;
-    color: var(--muted); transition: border-color 0.2s, color 0.2s;
-  }
-  .skill-tag:hover { border-color: var(--accent); color: var(--accent); }
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+  .skill-tag { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border); padding: 0.28rem 0.75rem; border-radius: 2px; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+  .skill-tag:hover { border-color: var(--accent); color: var(--accent2); }
 
-  .exp-item { margin-bottom: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid var(--border); }
+  .exp-item { margin-bottom: 2.4rem; padding-bottom: 2.4rem; border-bottom: 1px solid var(--border); }
   .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .exp-header {
-    display: flex; justify-content: space-between;
-    align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.3rem;
-  }
-  .exp-company {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-    font-weight: 600; color: var(--text); letter-spacing: 0.03em;
-    text-decoration: none; transition: color 0.2s;
-  }
-  .exp-company:hover { color: var(--accent); }
-  .exp-date { font-size: 0.63rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
-  .exp-role { font-size: 0.66rem; color: var(--accent); letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .exp-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.25rem; }
+  .exp-company { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 600; color: var(--text); letter-spacing: 0.03em; text-decoration: none; transition: color 0.2s; }
+  .exp-company:hover { color: var(--accent2); }
+  .exp-date { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.08em; white-space: nowrap; }
+  .exp-role { font-size: 0.64rem; color: var(--accent); letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.65rem; }
   .exp-bullets { list-style: none; padding: 0; }
-  .exp-bullets li { font-size: 0.74rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
+  .exp-bullets li { font-size: 0.73rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
   .exp-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
 
-  .edu-item { margin-bottom: 2rem; }
+  .edu-item { margin-bottom: 1.8rem; }
   .edu-item:last-child { margin-bottom: 0; }
-  .edu-degree {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.05rem;
-    font-weight: 600; color: var(--text); text-decoration: none;
-    transition: color 0.2s; display: inline-block;
-  }
-  .edu-degree:hover { color: var(--accent); }
-  .edu-school { font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 0.25rem 0 0.15rem; }
-  .edu-date { font-size: 0.63rem; color: var(--muted); margin-bottom: 0.5rem; }
+  .edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.03rem; font-weight: 600; color: var(--text); text-decoration: none; transition: color 0.2s; display: inline-block; }
+  .edu-degree:hover { color: var(--accent2); }
+  .edu-school { font-size: 0.64rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin: 0.2rem 0 0.12rem; }
+  .edu-date { font-size: 0.62rem; color: var(--muted); margin-bottom: 0.45rem; }
   .edu-bullets { list-style: none; padding: 0; }
-  .edu-bullets li { font-size: 0.74rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
+  .edu-bullets li { font-size: 0.73rem; line-height: 1.85; color: var(--subtle); padding-left: 1.1rem; position: relative; }
   .edu-bullets li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .edu-bullets a { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
-  .edu-bullets a:hover { color: var(--accent); }
+  .edu-bullets a:hover { color: var(--accent2); }
 
-  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.8rem; }
-  .info-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
-  .info-value { font-size: 0.74rem; color: var(--text); line-height: 1.85; }
+  .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 1.6rem; }
+  .info-label { font-size: 0.57rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.45rem; }
+  .info-value { font-size: 0.73rem; color: var(--text); line-height: 1.85; }
   .info-value a { color: var(--subtle); text-decoration: underline; text-underline-offset: 3px; }
-  .info-value a:hover { color: var(--accent); }
+  .info-value a:hover { color: var(--accent2); }
 
   @media (max-width: 620px) {
     .cv-header { grid-template-columns: auto 1fr; }
     .cv-contacts { grid-column: 1 / -1; align-items: flex-start; }
   }
 
-  /* ══ PRINT STYLES ══ */
-@media print {
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  /* ── PRINT ── */
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: #ffffff !important; color: #1a1e28 !important; font-size: 9pt; }
+    #pin-screen { display: none !important; }
+    #cv-screen { display: block !important; max-width: 100%; padding: 0; margin: 0; animation: none; }
+    @page { size: A4; margin: 12mm 15mm 10mm 15mm; }
 
-  body {
-    background: #fff !important;
-    color: #0a0a0b !important; /* Obsidian Black */
-    font-family: 'DM Mono', monospace;
-    font-size: 9pt;
+    .cv-header { gap: 1rem; padding-bottom: 8pt; margin-bottom: 10pt; border-bottom: 1.5px solid #b0bcd0; grid-template-columns: auto 1fr auto; }
+    .cv-photo { width: 56px; height: 56px; filter: none; border: 1px solid #c5cdd8; }
+    .cv-name { font-size: 21pt; color: #1a1e28; }
+    .cv-name span { color: #2f5a8a; }
+    .cv-contacts { gap: 2pt; }
+    .cv-contacts a { font-size: 7.5pt; color: #3a4a5c; gap: 3pt; }
+    .print-btn { display: none; }
+
+    .cv-section { margin-bottom: 9pt; }
+    .section-title { font-size: 6pt; color: #2f5a8a; margin-bottom: 5pt; letter-spacing: 0.25em; }
+    .section-title::after { background: #b0bcd0; }
+    .cv-summary { font-size: 7.8pt; line-height: 1.55; color: #2e3545; max-width: 100%; }
+
+    .skills-grid { gap: 3pt; }
+    .skill-tag { font-size: 6.5pt; padding: 2pt 5pt; border: 1px solid #b0bcd0; color: #3a4a5c; border-radius: 2px; }
+
+    .exp-item { margin-bottom: 7pt; padding-bottom: 7pt; border-bottom: 1px solid #dde3ec; }
+    .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .exp-company { font-size: 10pt; color: #1a1e28; }
+    .exp-date { font-size: 7pt; color: #5a6880; }
+    .exp-role { font-size: 6.5pt; color: #2f5a8a; margin-bottom: 3pt; }
+    .exp-bullets li { font-size: 7.5pt; line-height: 1.5; color: #2e3545; padding-left: 9pt; }
+    .exp-bullets li::before { color: #b0bcd0; }
+
+    .edu-item { margin-bottom: 7pt; }
+    .edu-degree { font-size: 9.5pt; color: #1a1e28; }
+    .edu-school { font-size: 6.5pt; color: #2f5a8a; }
+    .edu-date { font-size: 7pt; color: #5a6880; margin-bottom: 2pt; }
+    .edu-bullets li { font-size: 7.5pt; line-height: 1.5; color: #2e3545; padding-left: 9pt; }
+    .edu-bullets li::before { color: #b0bcd0; }
+    .edu-bullets a { color: #3a4a5c; }
+
+    .info-grid { grid-template-columns: repeat(4, 1fr); gap: 0.7rem; }
+    .info-label { font-size: 6pt; color: #5a6880; margin-bottom: 2pt; }
+    .info-value { font-size: 7.5pt; line-height: 1.55; color: #1a1e28; }
+    .info-value a { color: #3a4a5c; }
+
+    .exp-item, .edu-item, .cv-section { page-break-inside: avoid; }
   }
-
-  #pin-screen { display: none !important; }
-
-  #cv-screen {
-    display: block !important;
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-    animation: none;
-  }
-
-  @page {
-    size: A4;
-    margin: 12mm 14mm 10mm 14mm;
-  }
-
-  /* Header */
-  .cv-header {
-    grid-template-columns: auto 1fr auto;
-    gap: 1rem;
-    padding-bottom: 8pt;
-    margin-bottom: 10pt;
-    border-bottom: 1px solid #262629; /* Brushed Steel */
-  }
-  .cv-photo {
-    width: 58px; height: 58px;
-    filter: grayscale(100%);
-    border: 1px solid #262629;
-  }
-  .cv-name {
-    font-size: 22pt;
-    letter-spacing: 0.04em;
-    color: #0a0a0b;
-  }
-  .cv-name span { color: #85858b; } /* Slate Shadow statt Gold */
-  .cv-contacts { gap: 2pt; }
-  .cv-contacts a {
-    font-size: 7.5pt;
-    color: #262629;
-    gap: 3pt;
-  }
-  .cv-contacts a i { font-size: 7pt; color: #85858b; }
-  .print-btn { display: none; }
-
-  /* Sections */
-  .cv-section { margin-bottom: 9pt; }
-  .section-title {
-    font-size: 6pt;
-    letter-spacing: 0.28em;
-    color: #0a0a0b; /* Obsidian für Fokus */
-    margin-bottom: 6pt;
-    font-weight: bold;
-  }
-  .section-title::after { background: #262629; } /* Steel Line */
-
-  /* Profile */
-  .cv-summary {
-    font-size: 7.8pt;
-    line-height: 1.55;
-    color: #141416;
-    max-width: 100%;
-  }
-
-  /* Skills */
-  .skills-grid { gap: 3pt; }
-  .skill-tag {
-    font-size: 6.5pt;
-    padding: 2pt 6pt;
-    border-color: #262629;
-    color: #0a0a0b;
-    background: #f4f4f5 !important;
-  }
-
-  /* Experience */
-  .exp-item {
-    margin-bottom: 7pt;
-    padding-bottom: 7pt;
-    border-bottom: 1px solid #e4e4e9;
-  }
-  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .exp-company { font-size: 10pt; color: #0a0a0b; font-weight: bold; }
-  .exp-date { font-size: 7pt; color: #85858b; }
-  .exp-role { font-size: 6.5pt; color: #52525b; margin-bottom: 3pt; font-weight: bold; }
-  .exp-bullets li { font-size: 7.5pt; line-height: 1.5; color: #141416; padding-left: 10pt; }
-  .exp-bullets li::before { color: #a1a1aa; }
-
-  /* Education */
-  .edu-item { margin-bottom: 7pt; }
-  .edu-degree { font-size: 9.5pt; color: #0a0a0b; font-weight: bold; }
-  .edu-school { font-size: 6.5pt; color: #52525b; }
-  .edu-date { font-size: 7pt; color: #85858b; margin-bottom: 2pt; }
-  .edu-bullets li { font-size: 7.5pt; line-height: 1.5; color: #141416; padding-left: 10pt; }
-  .edu-bullets li::before { color: #a1a1aa; }
-  .edu-bullets a { color: #262629; }
-
-  /* Additional info */
-  .info-grid { grid-template-columns: repeat(4, 1fr); gap: 0.8rem; }
-  .info-label { font-size: 6pt; color: #85858b; margin-bottom: 2pt; }
-  .info-value { font-size: 7.5pt; line-height: 1.55; color: #0a0a0b; }
-  .info-value a { color: #262629; }
-
-  /* Prevent page breaks inside blocks */
-  .exp-item, .edu-item, .cv-section { page-break-inside: avoid; }
-}
-
 </style>
 </head>
 <body>
 
+<!-- PIN SCREEN -->
 <div id="pin-screen">
   <div class="lock-icon"><i class="fa-solid fa-lock"></i></div>
   <div class="pin-title">Access Required</div>
@@ -303,136 +197,24 @@
   <button class="unlock-btn" onclick="unlock()">Unlock</button>
 </div>
 
+<!-- CV SCREEN — fully empty until decrypted -->
 <div id="cv-screen">
   <div class="cv-header">
-    <img src="9.jpg" alt="David Palfrader" class="cv-photo">
-    <div class="cv-name">DAVID<br><span>PALFRADER</span></div>
-    <div class="cv-contacts">
-      <a href="mailto:davidpalfrader93@gmail.com"><i class="fa-solid fa-envelope"></i> davidpalfrader93@gmail.com</a>
-      <a href="tel:+393713420070"><i class="fa-solid fa-phone"></i> +39 371 342 0070</a>
-      <a href="https://www.linkedin.com/in/inofdapa" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <button class="print-btn" onclick="window.print()" title="Print / Save as PDF"><i class="fa-solid fa-print"></i></button>
-    </div>
+    <img src="9.jpg" alt="" class="cv-photo">
+    <div class="cv-name" id="cv-name"></div>
+    <div class="cv-contacts" id="cv-contacts"></div>
   </div>
-
-  <div class="cv-section">
-    <div class="section-title">Profile</div>
-    <p class="cv-summary">Recent finance graduate, fluent in four languages, with hands-on experience in treasury operations, risk modeling, and portfolio analytics. Currently working in the Treasury department at Raiffeisen Landesbank Südtirol AG, with a growing interest in quantitative finance and programming. Proactive and data-driven, with a strong academic background in asset management and risk, complemented by practical experience using R and Python.</p>
-  </div>
-
-  <div class="cv-section">
-    <div class="section-title">Skills &amp; Capabilities</div>
-    <div class="skills-grid">
-      <span class="skill-tag">Analytical Thinking</span>
-      <span class="skill-tag">Detail-Oriented</span>
-      <span class="skill-tag">Self-Driven Learner</span>
-      <span class="skill-tag">Solution-Oriented Thinking</span>
-      <span class="skill-tag">Structured Approach</span>
-      <span class="skill-tag">Adaptable &amp; Curious</span>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <div class="section-title">Experience</div>
-    <div class="exp-item">
-      <div class="exp-header">
-        <a class="exp-company" href="https://www.raiffeisen.it/de/landesbank.html" target="_blank">Raiffeisen Landesbank Südtirol</a>
-        <span class="exp-date">Apr 2024 – Present</span>
-      </div>
-      <div class="exp-role">Banking · Treasury Department</div>
-      <ul class="exp-bullets">
-        <li>Supported daily treasury operations including FX trading, interest rate swaps, and liquidity management.</li>
-        <li>Automated daily reporting workflows using Excel, VBA, and MS Access.</li>
-        <li>Extracted and analyzed market data via Bloomberg Terminal for trading strategy support.</li>
-      </ul>
-    </div>
-    <div class="exp-item">
-      <div class="exp-header">
-        <a class="exp-company" href="https://www.alperiagroup.eu/en" target="_blank">Alperia Trading</a>
-        <span class="exp-date">Jul 2022 – Sep 2022</span>
-      </div>
-      <div class="exp-role">Internship · Asset Management</div>
-      <ul class="exp-bullets">
-        <li>Assisted the electricity trading desk in daily operations and data analytics.</li>
-        <li>Developed R scripts and Excel macros to automate hydroelectric inflow calculations.</li>
-        <li>Participated in hydropower plants site visits and onboarding activities for asset monitoring.</li>
-      </ul>
-    </div>
-    <div class="exp-item">
-      <div class="exp-header">
-        <a class="exp-company" href="https://www.topskicenter.com/" target="_blank">Kiosk Toni</a>
-        <span class="exp-date">Jul 2017 – Sep 2020</span>
-      </div>
-      <div class="exp-role">Sales Manager</div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-header">
-        <a class="exp-company" href="https://www.topskicenter.com/" target="_blank">Top Ski Center Kronplatz</a>
-        <span class="exp-date">Nov 2016 – Apr 2017</span>
-      </div>
-      <div class="exp-role">Sales &amp; Customer Service</div>
-    </div>
-    <div class="exp-item">
-      <div class="exp-header">
-        <a class="exp-company" href="https://suedtirol.live/en/store/elektro-mutschlechner-san-vigilio-di-marebbe-p56408" target="_blank">Elektro Mutschlechner</a>
-        <span class="exp-date">Jul 2010 – Sep 2013</span>
-      </div>
-      <div class="exp-role">Programming &amp; Electrical Engineering</div>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <div class="section-title">Education</div>
-    <div class="edu-item">
-      <a class="edu-degree" href="https://www.uibk.ac.at/en/programmes/ma-banking-and-finance/" target="_blank">Master in Banking and Finance</a>
-      <div class="edu-school">University of Innsbruck, Austria</div>
-      <div class="edu-date">Oct 2022 – Nov 2024</div>
-      <ul class="edu-bullets">
-        <li>Specialization in Asset &amp; Portfolio Management, Corporate Finance, Quantitative Finance.</li>
-        <li>Thesis: <a href="https://ulb-dok.uibk.ac.at/urn/urn:nbn:at:at-ubi:1-163771" target="_blank">Regression Methods for Portfolio Optimization</a></li>
-      </ul>
-    </div>
-    <div class="edu-item">
-      <a class="edu-degree" href="https://www.uibk.ac.at/en/programmes/ba-management-and-economics/" target="_blank">Bachelor in Economics and Management</a>
-      <div class="edu-school">University of Innsbruck, Austria</div>
-      <div class="edu-date">Sep 2018 – Jun 2022</div>
-      <ul class="edu-bullets">
-        <li>Specialization in Marketing and Asset Management with focus on Financial Markets.</li>
-        <li>Additional coursework in <a href="https://www.uibk.ac.at/en/studien/ba-mathematik/" target="_blank">Mathematics</a> and <a href="https://www.uibk.ac.at/en/studien/es-informatik/" target="_blank">Informatics</a> as part of a minor study program.</li>
-      </ul>
-    </div>
-    <div class="edu-item">
-      <a class="edu-degree" href="https://www.bruneck.berufsschule.it/de/home" target="_blank">High School Diploma – Electrical Engineering &amp; Automation</a>
-      <div class="edu-school">BBF–TFO Bruneck, Italy</div>
-      <div class="edu-date">Sep 2013 – Jul 2015</div>
-    </div>
-  </div>
-
-  <div class="cv-section">
-    <div class="section-title">Additional Information &amp; Technical Skills</div>
-    <div class="info-grid">
-      <div>
-        <div class="info-label">Languages</div>
-        <div class="info-value">Ladino — Native<br>English — C1<br>German — C1 / C2<br>Italian — C1</div>
-      </div>
-      <div>
-        <div class="info-label">Programming</div>
-        <div class="info-value">R — Advanced<br>Python · Java · SQL<br>VBA</div>
-      </div>
-      <div>
-        <div class="info-label">Tools</div>
-        <div class="info-value">Bloomberg Terminal<br>MS Excel — Advanced<br>MS Access</div>
-      </div>
-      <div>
-        <div class="info-label">Certifications</div>
-        <div class="info-value"><a href="https://portal.bloombergforeducation.com/courses?course_category_id=3" target="_blank">Bloomberg Market Concepts (BMC)</a></div>
-      </div>
-    </div>
-  </div>
+  <div id="cv-body"></div>
 </div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
 <script>
-  const PIN_HASH = '315b7924897972befced4d452b492c0a9256f4ff3fec9b0fc83e6a1e17bdc50e';
+  // AES-256-CBC encrypted payload — unreadable without the correct PIN
+  const ENCRYPTED = {
+    salt: "274c63e78c6aa44d16608cac462990ff",
+    iv:   "7cf1aefb7c13d00d4f6b647984273750",
+    data: "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"
+  };
 
   const digits = document.querySelectorAll('.pin-digit');
   digits.forEach((input, i) => {
@@ -443,10 +225,7 @@
       }
     });
     input.addEventListener('keydown', e => {
-      if (e.key === 'Backspace' && !input.value && i > 0) {
-        digits[i - 1].focus();
-        digits[i - 1].value = '';
-      }
+      if (e.key === 'Backspace' && !input.value && i > 0) { digits[i - 1].focus(); digits[i - 1].value = ''; }
       if (e.key === 'Enter') unlock();
     });
   });
@@ -455,14 +234,22 @@
   async function unlock() {
     const pin = Array.from(digits).map(d => d.value).join('');
     if (pin.length < 6) { showHint('please enter all 6 digits', true); return; }
-    const encoded = new TextEncoder().encode(pin);
-    const hashBuf = await crypto.subtle.digest('SHA-256', encoded);
-    const hashHex = Array.from(new Uint8Array(hashBuf)).map(b => b.toString(16).padStart(2, '0')).join('');
-    if (hashHex === PIN_HASH) {
+    try {
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(pin), { name: 'PBKDF2' }, false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey(
+        { name: 'PBKDF2', salt: hexToBytes(ENCRYPTED.salt), iterations: 100000, hash: 'SHA-256' },
+        keyMaterial, { name: 'AES-CBC', length: 256 }, false, ['decrypt']
+      );
+      const decrypted = await crypto.subtle.decrypt(
+        { name: 'AES-CBC', iv: hexToBytes(ENCRYPTED.iv) },
+        key, base64ToBytes(ENCRYPTED.data)
+      );
+      renderCV(new TextDecoder().decode(decrypted));
       document.getElementById('pin-screen').style.display = 'none';
       document.getElementById('cv-screen').style.display = 'block';
       window.scrollTo(0, 0);
-    } else {
+    } catch (e) {
       const wrap = document.getElementById('pin-wrap');
       wrap.classList.add('error');
       showHint('incorrect code — try again', true);
@@ -475,10 +262,106 @@
     }
   }
 
+  function hexToBytes(hex) {
+    const arr = new Uint8Array(hex.length / 2);
+    for (let i = 0; i < hex.length; i += 2) arr[i / 2] = parseInt(hex.substr(i, 2), 16);
+    return arr;
+  }
+  function base64ToBytes(b64) {
+    const bin = atob(b64); const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; i++) arr[i] = bin.charCodeAt(i);
+    return arr;
+  }
   function showHint(msg, isError) {
     const hint = document.getElementById('pin-hint');
     hint.textContent = msg;
     hint.className = 'pin-hint' + (isError ? ' err' : '');
+  }
+
+  function renderCV(text) {
+    const sections = text.split('\n\n');
+
+    // Header: FIRSTNAME|LASTNAME|EMAIL:...|PHONE:...|LINKEDIN:...
+    const h = sections[0].split('|');
+    const firstName = h[0];
+    const lastName  = h[1];
+    const email     = h[2].replace('EMAIL:', '');
+    const phone     = h[3].replace('PHONE:', '');
+    const linkedin  = h[4].replace('LINKEDIN:', '');
+
+    document.getElementById('cv-name').innerHTML = `${firstName}<br><span>${lastName}</span>`;
+    document.getElementById('cv-contacts').innerHTML = `
+      <a href="mailto:${email}"><i class="fa-solid fa-envelope"></i> ${email}</a>
+      <a href="tel:${phone}"><i class="fa-solid fa-phone"></i> ${phone}</a>
+      <a href="${linkedin}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <button class="print-btn" onclick="window.print()" title="Print / Save as PDF"><i class="fa-solid fa-print"></i></button>
+    `;
+
+    let html = '';
+
+    // Profile
+    html += `<div class="cv-section"><div class="section-title">Profile</div>
+      <p class="cv-summary">${sections[1].replace('PROFILE\n','')}</p></div>`;
+
+    // Skills
+    const skills = sections[2].replace('SKILLS\n','').split('|');
+    html += `<div class="cv-section"><div class="section-title">Skills &amp; Capabilities</div><div class="skills-grid">`;
+    skills.forEach(s => { html += `<span class="skill-tag">${s.trim()}</span>`; });
+    html += `</div></div>`;
+
+    // Experience
+    const expLines = sections[3].replace('EXPERIENCE\n','').split('\n');
+    html += `<div class="cv-section"><div class="section-title">Experience</div>`;
+    expLines.forEach(line => {
+      const parts = line.split('|');
+      if (parts.length < 3) return;
+      const [company, url, date, role, ...bullets] = parts;
+      html += `<div class="exp-item"><div class="exp-header">
+        <a class="exp-company" href="${url}" target="_blank">${company}</a>
+        <span class="exp-date">${date}</span></div>
+        <div class="exp-role">${role||''}</div>`;
+      if (bullets.length) {
+        html += `<ul class="exp-bullets">`;
+        bullets.forEach(b => { if(b.trim()) html += `<li>${b.trim()}</li>`; });
+        html += `</ul>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div>`;
+
+    // Education
+    const eduLines = sections[4].replace('EDUCATION\n','').split('\n');
+    html += `<div class="cv-section"><div class="section-title">Education</div>`;
+    eduLines.forEach(line => {
+      const parts = line.split('|');
+      if (parts.length < 4) return;
+      const [degree, url, school, date, ...notes] = parts;
+      html += `<div class="edu-item">
+        <a class="edu-degree" href="${url}" target="_blank">${degree}</a>
+        <div class="edu-school">${school}</div>
+        <div class="edu-date">${date}</div>`;
+      if (notes.length) {
+        html += `<ul class="edu-bullets">`;
+        notes.forEach(n => { if(n.trim()) html += `<li>${n.trim()}</li>`; });
+        html += `</ul>`;
+      }
+      html += `</div>`;
+    });
+    html += `</div>`;
+
+    // Info
+    const infoLines = sections[5].replace('INFO\n','').split('\n');
+    html += `<div class="cv-section"><div class="section-title">Additional Information &amp; Technical Skills</div><div class="info-grid">`;
+    infoLines.forEach(line => {
+      const [label, ...rest] = line.split(': ');
+      let value = rest.join(': ');
+      const certMatch = value.match(/^(.+)\|(.+)$/);
+      if (certMatch) value = `<a href="${certMatch[2]}" target="_blank">${certMatch[1]}</a>`;
+      html += `<div><div class="info-label">${label}</div><div class="info-value">${value}</div></div>`;
+    });
+    html += `</div></div>`;
+
+    document.getElementById('cv-body').innerHTML = html;
   }
 </script>
 </body>
