@@ -342,7 +342,22 @@
         <div class="edu-date">${date}</div>`;
       if (notes.length) {
         html += `<ul class="edu-bullets">`;
-        notes.forEach(n => { if(n.trim()) html += `<li>${n.trim()}</li>`; });
+        // Group notes: if a note starts with https://, it's a link for the previous bullet
+        let pendingLink = null;
+        const noteList = notes.filter(n => n.trim());
+        noteList.forEach((n, idx) => {
+          if (n.trim().startsWith('http')) {
+            // This is a URL for the previous bullet — already handled below, skip
+            return;
+          }
+          // Check if next item is a URL (link for this bullet)
+          const next = noteList[idx + 1];
+          if (next && next.trim().startsWith('http')) {
+            html += `<li><a href="${next.trim()}" target="_blank">${n.trim()}</a></li>`;
+          } else {
+            html += `<li>${n.trim()}</li>`;
+          }
+        });
         html += `</ul>`;
       }
       html += `</div>`;
